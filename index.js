@@ -15,7 +15,7 @@ const port = process.env.port;
 
 app.get("/", (req, res) => res.send("Hola Mundo"));
 
-// GET USUARIOS
+// GET USUARIOS ---
 
 app.get("/usuarios", getUsuarios);
 
