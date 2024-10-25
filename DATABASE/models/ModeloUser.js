@@ -13,4 +13,4 @@ const SchemaUser = new Schema({
 
 // Crear modulo
 
-export const ModeloUsuario = model("Usuario", shcemaAuto);
+export const ModeloUsuario = model("Usuario", SchemaUser);
