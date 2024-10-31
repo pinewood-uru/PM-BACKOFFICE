@@ -4,10 +4,10 @@ import { Schema, model } from "mongoose";
 
 const SchemaUser = new Schema({
   id: { type: Number, unique: true },
-  Nombre: String,
-  Email: String,
-  Empresa: String,
-  Direccion: String,
+  nombre: String,
+  email: String,
+  empresa: String,
+  direccion: String,
 });
 
 // Crear modulo
