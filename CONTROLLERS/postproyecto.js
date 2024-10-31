@@ -1,5 +1,4 @@
 import { ModeloProyecto} from "../DATABASE/models/ModeloProyecto.js";
-
 import { obtenerProximoId } from "../Utils/utils.js";
 
 export const postProyecto = async (req,res, next)=>{

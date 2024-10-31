@@ -1,4 +1,4 @@
-import { ModeloProyecto } from "../DATABASE/models/ModeloProyecto";
+import { ModeloProyecto } from "../DATABASE/models/ModeloProyecto.js";
 
 export const deleteProyecto = (req, res, next) => {
     const IdProyecto = req.params.id;
