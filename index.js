@@ -5,6 +5,10 @@ import { conectarDB } from "./DATABASE/conectarDB.js";
 
 import { getUsuarios } from "./CONTROLLERS/getusuarios.js";
 import { getProyectos } from "./CONTROLLERS/getproyectos.js";
+import { postUsuario } from "./CONTROLLERS/postusuarios.js";
+import { postProyecto } from "./CONTROLLERS/postproyecto.js";
+import { deleteUsuario } from "./CONTROLLERS/deleteusuario.js";
+import { deleteProyecto } from "./CONTROLLERS/deleteproyecto.js";
 
 const app = express();
 
@@ -16,13 +20,19 @@ const port = process.env.port;
 
 app.get("/", (req, res) => res.send("Hola Mundo"));
 
-// GET USUARIOS ---
+// USUARIOS ---
 
 app.get("/usuario", getUsuarios);
+app.post("/usuario", postUsuario);
+app.delete("/usuario", deleteUsuario);
 
-// GET PROYECTOS ---
+// PROYECTOS ---
 
 app.get("/proyecto", getProyectos);
+app.post("/proyecto", postProyecto);
+app.delete("/proyecto", deleteProyecto);
+
+
 
 app.listen(port, () => {
   console.log(`App corriendo en el puerto ${port}`);
