@@ -11,5 +11,6 @@ export const getProyectos = (req, res) => {
     })
     .catch((error) => {
         res.send("Error");
+        res.status(500).send("Proyecto no definido");
     });
 };

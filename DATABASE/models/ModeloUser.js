@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-import { type } from "os";
 
 // DEFINIR SCHEMA DE LA COLECTION
 
@@ -13,4 +12,4 @@ const SchemaUser = new Schema({
 
 // Crear modulo
 
-export const ModeloUsuario = model("Usuario", SchemaUser);
+export const ModeloUsuario = model("usuario", SchemaUser);

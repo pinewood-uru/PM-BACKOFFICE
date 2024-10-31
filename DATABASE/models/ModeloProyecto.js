@@ -1,12 +1,11 @@
 import { Schema, model } from "mongoose";
-import {type} from "os";
 
 const   SchemaProyecto = new Schema({
     id: {type: Number, unique: true},
-    RazonSocial: String,
-    Rut: String,
-    Direccion: String,
-    Padron: String,
+    razonsocial: String,
+    rut: String,
+    direccion: String,
+    padron: String,
 });
 
-export const ModeloProyecto = model ("Proyecto", SchemaProyecto);
+export const ModeloProyecto = model ("proyecto", SchemaProyecto);

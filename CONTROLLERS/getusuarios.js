@@ -11,5 +11,7 @@ export const getUsuarios = (req, res) => {
     })
     .catch((error) => {
       res.send("Error");
+      res.status(500).send("Usuario no definido");
+
     });
 };
