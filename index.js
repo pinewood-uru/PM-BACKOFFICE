@@ -9,7 +9,8 @@ import { postUsuario } from "./CONTROLLERS/postusuarios.js";
 import { postProyecto } from "./CONTROLLERS/postproyecto.js";
 import { deleteUsuario } from "./CONTROLLERS/deleteusuario.js";
 import { deleteProyecto } from "./CONTROLLERS/deleteproyecto.js";
-
+import { postAdmin } from "./CONTROLLERS/postadmin.js";
+import { getAdmin } from "./CONTROLLERS/getadmin.js";
 const app = express();
 
 app.use(express.json());
@@ -31,6 +32,11 @@ app.delete("/usuario", deleteUsuario);
 app.get("/proyecto", getProyectos);
 app.post("/proyecto", postProyecto);
 app.delete("/proyecto", deleteProyecto);
+
+// ADM
+
+app.post("/administrador", postAdmin);
+app.post("/administrador", getAdmin);
 
 
 
