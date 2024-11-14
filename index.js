@@ -1,8 +1,10 @@
 import express from "express";
-import "dotenv/config";
+import "dotenv/config";logoutusuario
 import cors from "cors";
 import { conectarDB } from "./DATABASE/conectarDB.js";
 
+import { loginUsuario} from "./CONTROLLERS/loginusuario.js";
+import { logoutusuario } from "./CONTROLLERS/logoutusuario.js";
 import { getUsuarios } from "./CONTROLLERS/getusuarios.js";
 import { getProyectos } from "./CONTROLLERS/getproyectos.js";
 import { postUsuario } from "./CONTROLLERS/postusuarios.js";
@@ -10,6 +12,8 @@ import { postProyecto } from "./CONTROLLERS/postproyecto.js";
 import { deleteUsuario } from "./CONTROLLERS/deleteusuario.js";
 import { deleteProyecto } from "./CONTROLLERS/deleteproyecto.js";
 import { modificarproyecto } from "./CONTROLLERS/modificarproyecto.js";
+import { loginAdmin } from "./CONTROLLERS/loginadm.js";
+import { logoutadmin } from "./CONTROLLERS/logoutadm.js";
 import { postAdmin } from "./CONTROLLERS/postadmin.js";
 import { getAdmin } from "./CONTROLLERS/getadmin.js";
 
@@ -32,27 +36,41 @@ const port = process.env.port;
 
 app.get("/", (req, res) => res.send("Hola Mundo"));
 
+
+// LOGOUT
+app.post("/logout",logoutusuario);
+app.post("/logoutadm",logoutadmin);
+
 // USUARIOS ---
 
 // register
 app.post("/usuario", postUsuario);
 
-app.get("/usuario", getUsuarios);
-app.delete("/usuario/:id", deleteUsuario);
+// LOGIN
+app.post("/login",loginUsuario);
 
-// PROYECTOS ---
+app.get("/usuario", getUsuarios);
+
+// ADM ------
+
+// Register
+app.post("/x", postAdmin);
+
+// LOGIN
+app.post("/loginadm",loginAdmin);
+
+app.post("/administrador", getAdmin);
+
+// PROYECTOS y USUARIOS---
 
 app.get("/proyecto", getProyectos);
 app.post("/proyecto", postProyecto);
 app.delete("/proyecto/:id", deleteProyecto);
 app.put("/proyecto/:id", modificarproyecto);
 
-// ADM
+app.delete("/usuario/:id", deleteUsuario);
 
-// Register
-app.post("/x", postAdmin);
 
-app.post("/administrador", getAdmin);
 
 // MIDDLEWARE ERRORES
 app.use(manejadorErrores)
