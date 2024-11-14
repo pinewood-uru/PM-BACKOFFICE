@@ -5,8 +5,9 @@ import { Schema, model } from "mongoose";
 const SchemaAdm = new Schema({
   id: { type: Number, unique: true },
   nombre: String,
-  email: String,
-  
+  email: { type: String, unique: true },
+  password: String,
+  session: String,
 });
 
 // Crear modulo

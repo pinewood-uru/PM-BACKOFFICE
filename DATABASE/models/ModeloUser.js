@@ -6,8 +6,10 @@ const SchemaUser = new Schema({
   id: { type: Number, unique: true },
   nombre: String,
   email: String,
-  empresa: String,
+  empresa: { type: String, unique: true },
   direccion: String,
+  password: String,
+  session: String,
 });
 
 // Crear modulo
