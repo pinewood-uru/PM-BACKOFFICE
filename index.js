@@ -9,11 +9,13 @@ import { postUsuario } from "./CONTROLLERS/postusuarios.js";
 import { postProyecto } from "./CONTROLLERS/postproyecto.js";
 import { deleteUsuario } from "./CONTROLLERS/deleteusuario.js";
 import { deleteProyecto } from "./CONTROLLERS/deleteproyecto.js";
+import { modificarproyecto } from "./CONTROLLERS/modificarproyecto.js";
 import { postAdmin } from "./CONTROLLERS/postadmin.js";
 import { getAdmin } from "./CONTROLLERS/getadmin.js";
 
 import { mostrarDatos } from "./Middlewares/mostrarDatos.js";
 import { manejadorErrores } from "./Middlewares/manejoErrores.js";
+import { register } from "module";
 
 
 const app = express();
@@ -32,19 +34,24 @@ app.get("/", (req, res) => res.send("Hola Mundo"));
 
 // USUARIOS ---
 
-app.get("/usuario", getUsuarios);
+// register
 app.post("/usuario", postUsuario);
-app.delete("/usuario", deleteUsuario);
+
+app.get("/usuario", getUsuarios);
+app.delete("/usuario/:id", deleteUsuario);
 
 // PROYECTOS ---
 
 app.get("/proyecto", getProyectos);
 app.post("/proyecto", postProyecto);
-app.delete("/proyecto", deleteProyecto);
+app.delete("/proyecto/:id", deleteProyecto);
+app.put("/proyecto/:id", modificarproyecto);
 
 // ADM
 
-app.post("/administrador", postAdmin);
+// Register
+app.post("/x", postAdmin);
+
 app.post("/administrador", getAdmin);
 
 // MIDDLEWARE ERRORES
