@@ -6,6 +6,7 @@ const   SchemaProyecto = new Schema({
     rut: String,
     direccion: String,
     padron: String,
+    estado: String
 });
 
 export const ModeloProyecto = model ("proyecto", SchemaProyecto);
