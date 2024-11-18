@@ -13,7 +13,7 @@ import { deleteUsuario } from "./CONTROLLERS/deleteusuario.js";
 import { deleteProyecto } from "./CONTROLLERS/deleteproyecto.js";
 import { modificarproyecto } from "./CONTROLLERS/modificarproyecto.js";
 import { loginAdmin } from "./CONTROLLERS/loginadm.js";
-import { logoutadmin } from "./CONTROLLERS/logoutadm.js";
+import { logoutadmin } from "./CONTROLLERS/logoutadmin.js";
 import { postAdmin } from "./CONTROLLERS/postadmin.js";
 import { getAdmin } from "./CONTROLLERS/getadmin.js";
 
