@@ -19,6 +19,7 @@ import { getAdmin } from "./CONTROLLERS/getadmin.js";
 
 import { mostrarDatos } from "./Middlewares/mostrarDatos.js";
 import { manejadorErrores } from "./Middlewares/manejoErrores.js";
+import { controlarSession } from "./Middlewares/controlarsession.js";
 import { register } from "module";
 
 
@@ -36,35 +37,31 @@ const port = process.env.port;
 
 app.get("/", (req, res) => res.send("Hola Mundo"));
 
+// Register
+app.post("/registeradm", postAdmin);
+app.post("/usuario", postUsuario);
+
+// LOGIN
+app.post("/loginadm",loginAdmin);
+app.post("/login",loginUsuario);
+
+app.use(controlarSession)
+
+
+// ADM ------
+app.get("/administrador", getAdmin);
 
 // LOGOUT
 app.post("/logout",logoutusuario);
 app.post("/logoutadm",logoutadmin);
 
-// USUARIOS ---
+// PROYECTOS y USUARIOS---
+app.get("/usuario", getUsuarios);
+app.get("/proyecto", getProyectos);
 
-// register
+app.post("/proyecto", postProyecto);
 app.post("/usuario", postUsuario);
 
-// LOGIN
-app.post("/login",loginUsuario);
-
-app.get("/usuario", getUsuarios);
-
-// ADM ------
-
-// Register
-app.post("/x", postAdmin);
-
-// LOGIN
-app.post("/loginadm",loginAdmin);
-
-app.post("/administrador", getAdmin);
-
-// PROYECTOS y USUARIOS---
-
-app.get("/proyecto", getProyectos);
-app.post("/proyecto", postProyecto);
 app.delete("/proyecto/:id", deleteProyecto);
 app.put("/proyecto/:id", modificarproyecto);
 
