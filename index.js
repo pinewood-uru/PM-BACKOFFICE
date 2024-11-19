@@ -7,6 +7,7 @@ import { loginUsuario} from "./CONTROLLERS/loginusuario.js";
 import { logoutusuario } from "./CONTROLLERS/logoutusuario.js";
 import { getUsuarios } from "./CONTROLLERS/getusuarios.js";
 import { getProyectos } from "./CONTROLLERS/getproyectos.js";
+import { getProyectobyID } from "./CONTROLLERS/getproyectobyid.js";
 import { postUsuario } from "./CONTROLLERS/postusuarios.js";
 import { postProyecto } from "./CONTROLLERS/postproyecto.js";
 import { deleteUsuario } from "./CONTROLLERS/deleteusuario.js";
@@ -38,35 +39,34 @@ const port = process.env.port;
 
 app.get("/", (req, res) => res.send("Hola Mundo"));
 
-// Register
-app.post("/registeradm", postAdmin);
-app.post("/usuario", postUsuario);
-
-// LOGIN
+// Admin
 app.post("/loginadm",loginAdmin);
-app.post("/login",loginUsuario);
 
 app.use(controlarSession)
-app.use(controlarSessionUsuario)
 
-
-// ADM ------
+app.post("/logoutadm",logoutadmin);
+app.post("/registeradm", postAdmin);
 app.get("/administrador", getAdmin);
 
-// LOGOUT
+
+// Usuarios
+
+app.post("/login",loginUsuario);
+
+app.use(controlarSessionUsuario)
+
+app.post("/registeruser", postUsuario);
+
 app.post("/logout",logoutusuario);
-app.post("/logoutadm",logoutadmin);
 
 // PROYECTOS y USUARIOS---
 app.get("/usuario", getUsuarios);
 app.get("/proyecto", getProyectos);
+app.get("/proyecto/:id", getProyectos);
 
 app.post("/proyecto", postProyecto);
-app.post("/usuario", postUsuario);
-
 app.delete("/proyecto/:id", deleteProyecto);
 app.put("/proyecto/:id", modificarproyecto);
-
 app.delete("/usuario/:id", deleteUsuario);
 
 
