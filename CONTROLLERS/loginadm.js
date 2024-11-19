@@ -9,7 +9,7 @@ export const loginAdmin = async (req, res, next) => {
         administrador.session = Math.random().toString(36).slice(2);
         administrador.save()
         .then(()=>{
-            res.json({session: administrador.session, restaurante: administrador});
+            res.json({session: administrador.session, email: administrador});
         })
         .catch((error)=>{
             next(error);

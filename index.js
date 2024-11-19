@@ -20,6 +20,7 @@ import { getAdmin } from "./CONTROLLERS/getadmin.js";
 import { mostrarDatos } from "./Middlewares/mostrarDatos.js";
 import { manejadorErrores } from "./Middlewares/manejoErrores.js";
 import { controlarSession } from "./Middlewares/controlarsession.js";
+import { controlarSessionUsuario } from "./Middlewares/controlarsessionUSER.js";
 import { register } from "module";
 
 
@@ -46,6 +47,7 @@ app.post("/loginadm",loginAdmin);
 app.post("/login",loginUsuario);
 
 app.use(controlarSession)
+app.use(controlarSessionUsuario)
 
 
 // ADM ------

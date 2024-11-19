@@ -9,7 +9,7 @@ const SchemaUser = new Schema({
   empresa: { type: String, unique: true },
   direccion: String,
   password: String,
-  session: String,
+  sessionuser: String,
 });
 
 // Crear modulo

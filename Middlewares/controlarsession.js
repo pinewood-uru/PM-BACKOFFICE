@@ -13,7 +13,7 @@ export const controlarSession = async (req, res, next) => {
             req.nombre = admin;
             next();
         }else{
-            throw {status: 401, message: "Sesión no es valida"}
+            throw {status: 401, message: "Sesión Admin no es valida"}
         }
 
     }catch(error){
