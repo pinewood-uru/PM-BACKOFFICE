@@ -21,7 +21,7 @@ import { getAdmin } from "./CONTROLLERS/getadmin.js";
 import { mostrarDatos } from "./Middlewares/mostrarDatos.js";
 import { manejadorErrores } from "./Middlewares/manejoErrores.js";
 import { controlarSession } from "./Middlewares/controlarsession.js";
-import { controlarSessionUsuario } from "./Middlewares/controlarsessionUSER.js";
+// import { controlarSessionUsuario } from "./Middlewares/controlarsessionUSER.js";
 import { register } from "module";
 
 
@@ -53,7 +53,7 @@ app.get("/administrador", getAdmin);
 
 app.post("/login",loginUsuario);
 
-app.use(controlarSessionUsuario)
+// app.use(controlarSessionUsuario)
 
 app.post("/registeruser", postUsuario);
 
