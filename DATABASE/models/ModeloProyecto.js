@@ -6,7 +6,8 @@ const   SchemaProyecto = new Schema({
     rut: String,
     direccion: String,
     padron: String,
-    estado: String
+    estado: {type: String, default: "recibido"},
+    edt: {type: Date, default: "-"}
 });
 
 export const ModeloProyecto = model ("proyecto", SchemaProyecto);
