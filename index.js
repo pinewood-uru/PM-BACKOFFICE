@@ -1,13 +1,13 @@
 import express from "express";
-import "dotenv/config";logoutusuario
+import "dotenv/config";
 import cors from "cors";
 import { conectarDB } from "./DATABASE/conectarDB.js";
 
-import { loginUsuario} from "./CONTROLLERS/loginusuario.js";
-import { logoutusuario } from "./CONTROLLERS/logoutusuario.js";
+// import { loginUsuario} from "./CONTROLLERS/loginusuario.js";
+// import { logoutusuario } from "./CONTROLLERS/logoutusuario.js";
 import { getUsuarios } from "./CONTROLLERS/getusuarios.js";
 import { getProyectos } from "./CONTROLLERS/getproyectos.js";
-import { getProyectobyID } from "./CONTROLLERS/getproyectobyid.js";
+// import { getProyectobyID } from "./CONTROLLERS/getproyectobyid.js";
 import { postUsuario } from "./CONTROLLERS/postusuarios.js";
 import { postProyecto } from "./CONTROLLERS/postproyecto.js";
 import { deleteUsuario } from "./CONTROLLERS/deleteusuario.js";
@@ -21,7 +21,7 @@ import { getAdmin } from "./CONTROLLERS/getadmin.js";
 import { mostrarDatos } from "./Middlewares/mostrarDatos.js";
 import { manejadorErrores } from "./Middlewares/manejoErrores.js";
 import { controlarSession } from "./Middlewares/controlarsession.js";
-import { controlarSessionUsuario } from "./Middlewares/controlarsessionUSER.js";
+// import { controlarSessionUsuario } from "./Middlewares/controlarsessionUSER.js";
 import { register } from "module";
 
 
@@ -51,13 +51,13 @@ app.get("/administrador", getAdmin);
 
 // Usuarios
 
-app.post("/login",loginUsuario);
+// app.post("/login",loginUsuario);
 
-app.use(controlarSessionUsuario)
+// app.use(controlarSessionUsuario)
 
 app.post("/registeruser", postUsuario);
 
-app.post("/logout",logoutusuario);
+// app.post("/logout",logoutusuario);
 
 // PROYECTOS y USUARIOS---
 app.get("/usuario", getUsuarios);

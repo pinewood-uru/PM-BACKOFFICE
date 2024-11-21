@@ -10,7 +10,7 @@ export const controlarSession = async (req, res, next) => {
         const admin = await ModeloAdmin.findOne({session: authHeader})
 
         if(admin){
-            req.nombre = admin;
+            req.email = admin;
             next();
         }else{
             throw {status: 401, message: "Sesión Admin no es valida"}
