@@ -1,7 +1,5 @@
 import { ModeloAdmin } from "../DATABASE/models/ModeloAdm.js";
 
-
-
 export const loginAdmin = async (req, res, next) => {
     const {email, password } = req.body;
     const administrador = await ModeloAdmin.findOne({ email, password })

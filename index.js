@@ -24,55 +24,49 @@ import { controlarSession } from "./Middlewares/controlarsession.js";
 // import { controlarSessionUsuario } from "./Middlewares/controlarsessionUSER.js";
 import { register } from "module";
 
-
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 conectarDB();
 
-
 // MIDDLEWARE > DATOS --> En cada llamada para por el middleware para poder verlo en consola
-app.use(mostrarDatos)
+app.use(mostrarDatos);
 
 const port = process.env.port;
 
 app.get("/", (req, res) => res.send("Hola Mundo"));
 
-// Admin
-app.post("/loginadm",loginAdmin);
-
-app.use(controlarSession)
-
-app.post("/logoutadm",logoutadmin);
-app.post("/registeradm", postAdmin);
-app.get("/administrador", getAdmin);
-
-
-// Usuarios
+// Usuarios ----------
 
 // app.post("/login",loginUsuario);
-
 // app.use(controlarSessionUsuario)
-
-app.post("/registeruser", postUsuario);
-
 // app.post("/logout",logoutusuario);
 
 // PROYECTOS y USUARIOS---
-app.get("/usuario", getUsuarios);
+
+app.post("/registeruser", postUsuario);
+
 app.get("/proyecto", getProyectos);
 app.get("/proyecto/:id", getProyectobyID);
-
 app.post("/proyecto", postProyecto);
 app.delete("/proyecto/:id", deleteProyecto);
 app.put("/proyecto/:id", modificarproyecto);
+
+app.get("/usuario", getUsuarios);
 app.delete("/usuario/:id", deleteUsuario);
 
+// Admin------------
+app.post("/loginadm", loginAdmin);
 
+app.use(controlarSession);
+
+app.post("/logoutadm", logoutadmin);
+app.post("/registeradm", postAdmin);
+app.get("/administrador", getAdmin);
 
 // MIDDLEWARE ERRORES
-app.use(manejadorErrores)
+app.use(manejadorErrores);
 
 app.listen(port, () => {
   console.log(`App corriendo en el puerto ${port}`);
