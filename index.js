@@ -7,7 +7,7 @@ import { conectarDB } from "./DATABASE/conectarDB.js";
 // import { logoutusuario } from "./CONTROLLERS/logoutusuario.js";
 import { getUsuarios } from "./CONTROLLERS/getusuarios.js";
 import { getProyectos } from "./CONTROLLERS/getproyectos.js";
-// import { getProyectobyID } from "./CONTROLLERS/getproyectobyid.js";
+import { getProyectobyID } from "./CONTROLLERS/getproyectobyid.js";
 import { postUsuario } from "./CONTROLLERS/postusuarios.js";
 import { postProyecto } from "./CONTROLLERS/postproyecto.js";
 import { deleteUsuario } from "./CONTROLLERS/deleteusuario.js";
@@ -62,7 +62,7 @@ app.post("/registeruser", postUsuario);
 // PROYECTOS y USUARIOS---
 app.get("/usuario", getUsuarios);
 app.get("/proyecto", getProyectos);
-app.get("/proyecto/:id", getProyectos);
+app.get("/proyecto/:id", getProyectobyID);
 
 app.post("/proyecto", postProyecto);
 app.delete("/proyecto/:id", deleteProyecto);
