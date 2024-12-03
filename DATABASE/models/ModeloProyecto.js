@@ -8,7 +8,9 @@ const   SchemaProyecto = new Schema({
     padron: String,
     estado: {type: String, default: "Recibido"},
     edt: {type: String, default: "En espera"},
-    token: String
+    token: {type: String, default: "-"}
+    
 });
+
 
 export const ModeloProyecto = model ("proyecto", SchemaProyecto);
