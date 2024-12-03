@@ -48,10 +48,6 @@ app.get("/", (req, res) => res.send("Hola Mundo"));
 app.post("/registeruser", postUsuario);
 
 app.get("/proyecto", getProyectos);
-app.get("/proyecto/:id", getProyectobyID);
-app.post("/proyecto", postProyecto);
-app.delete("/proyecto/:id", deleteProyecto);
-app.put("/proyecto/:id", modificarproyecto);
 
 app.get("/usuario", getUsuarios);
 app.delete("/usuario/:id", deleteUsuario);
@@ -64,6 +60,11 @@ app.use(controlarSession);
 app.post("/logoutadm", logoutadmin);
 app.post("/registeradm", postAdmin);
 app.get("/administrador", getAdmin);
+
+app.get("/proyecto/:id", getProyectobyID);
+app.post("/proyecto", postProyecto);
+app.delete("/proyecto/:id", deleteProyecto);
+app.put("/proyecto/:id", modificarproyecto);
 
 // MIDDLEWARE ERRORES
 app.use(manejadorErrores);

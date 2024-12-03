@@ -1,7 +1,7 @@
 import { ModeloProyecto} from "../DATABASE/models/ModeloProyecto.js";
 export const modificarproyecto = (req, res, next) => {
     const IdProyecto = req.params.id;
-    const {razonsocial, rut, direccion, padron, estado, edt} = req.body;
+    const {razonsocial, rut, direccion, padron, estado, edt, token} = req.body;
 
     const datosNuevos = {};
 
@@ -11,6 +11,7 @@ export const modificarproyecto = (req, res, next) => {
     if (padron) datosNuevos.padron = padron;
     if (estado) datosNuevos.estado = estado;
     if (edt) datosNuevos.edt = edt;
+    if (token) datosNuevos.token = token;
     
 
     ModeloProyecto.updateOne({ id: IdProyecto }, datosNuevos)

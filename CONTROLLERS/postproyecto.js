@@ -2,7 +2,7 @@ import { ModeloProyecto} from "../DATABASE/models/ModeloProyecto.js";
 import { obtenerProximoId } from "../Utils/utils.js";
 
 export const postProyecto = async (req,res, next)=>{
-    const {razonsocial, rut, direccion, padron, estado, edt} = req.body;
+    const {razonsocial, rut, direccion, padron, estado, edt, token} = req.body;
     const nuevoproyecto = new ModeloProyecto();
     nuevoproyecto.id = await obtenerProximoId(ModeloProyecto)
     nuevoproyecto.razonsocial = razonsocial;
@@ -12,6 +12,7 @@ export const postProyecto = async (req,res, next)=>{
     // por defecto el estado sera "recibido" si no se pasa
     nuevoproyecto.estado = estado || "recibido";
     nuevoproyecto.edt = edt || "-";
+    nuevoproyecto.token = token;
     nuevoproyecto.save()
     .then((data)=>{
         res.json({messege:`Proyecto ${nuevoproyecto.direccion} ingresado con exito`})
