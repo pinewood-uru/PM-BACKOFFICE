@@ -12,7 +12,7 @@ export const postProyecto = async (req,res, next)=>{
     // por defecto el estado sera "recibido" si no se pasa
     nuevoproyecto.estado = estado || "recibido";
     nuevoproyecto.edt = edt || "-";
-    nuevoproyecto.token = token;
+    nuevoproyecto.token = token || "-";
     nuevoproyecto.save()
     .then((data)=>{
         res.json({messege:`Proyecto ${nuevoproyecto.direccion} ingresado con exito`})
