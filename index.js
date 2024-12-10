@@ -51,6 +51,8 @@ app.get("/proyecto", getProyectos);
 
 app.get("/usuario", getUsuarios);
 app.delete("/usuario/:id", deleteUsuario);
+app.get("/proyecto/:id", getProyectobyID);
+
 
 // Admin------------
 app.post("/loginadm", loginAdmin);
@@ -61,7 +63,6 @@ app.post("/logoutadm", logoutadmin);
 app.post("/registeradm", postAdmin);
 app.get("/administrador", getAdmin);
 
-app.get("/proyecto/:id", getProyectobyID);
 app.post("/proyecto", postProyecto);
 app.delete("/proyecto/:id", deleteProyecto);
 app.put("/proyecto/:id", modificarproyecto);
