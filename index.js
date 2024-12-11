@@ -7,7 +7,7 @@ import { conectarDB } from "./DATABASE/conectarDB.js";
 // import { logoutusuario } from "./CONTROLLERS/logoutusuario.js";
 import { getUsuarios } from "./CONTROLLERS/getusuarios.js";
 import { getProyectos } from "./CONTROLLERS/getproyectos.js";
-import { getProyectobyID } from "./CONTROLLERS/getproyectobyid.js";
+import { getProyectobyID, getProyectobytoken } from "./CONTROLLERS/getproyectobyid.js";
 import { postUsuario } from "./CONTROLLERS/postusuarios.js";
 import { postProyecto } from "./CONTROLLERS/postproyecto.js";
 import { deleteUsuario } from "./CONTROLLERS/deleteusuario.js";
@@ -51,13 +51,14 @@ app.get("/proyecto", getProyectos);
 
 app.get("/usuario", getUsuarios);
 app.delete("/usuario/:id", deleteUsuario);
-app.get("/proyecto/:id", getProyectobyID);
-
+app.get("/proyecto/:token", getProyectobytoken);
 
 // Admin------------
 app.post("/loginadm", loginAdmin);
 
 app.use(controlarSession);
+
+app.get("/proyecto/:id", getProyectobyID);
 
 app.post("/logoutadm", logoutadmin);
 app.post("/registeradm", postAdmin);
