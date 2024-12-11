@@ -51,14 +51,14 @@ app.get("/proyecto", getProyectos);
 
 app.get("/usuario", getUsuarios);
 app.delete("/usuario/:id", deleteUsuario);
-app.get("/proyecto/:token", getProyectobytoken);
 
+app.get("/proyecto/:id", getProyectobyID);
 // Admin------------
 app.post("/loginadm", loginAdmin);
 
 app.use(controlarSession);
 
-app.get("/proyecto/:id", getProyectobyID);
+app.get("/proyecto/:token", getProyectobytoken);
 
 app.post("/logoutadm", logoutadmin);
 app.post("/registeradm", postAdmin);
