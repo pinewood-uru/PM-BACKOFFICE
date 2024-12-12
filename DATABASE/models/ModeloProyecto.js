@@ -8,7 +8,7 @@ const   SchemaProyecto = new Schema({
     padron: String,
     estado: {type: String, default: "Recibido"},
     edt: {type: String, default: "En espera"},
-    token: {type: String, default: "-"}
+    token: {type: String, default: "-", unique: true},
     
 });
 

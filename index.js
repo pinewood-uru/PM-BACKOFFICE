@@ -3,8 +3,6 @@ import "dotenv/config";
 import cors from "cors";
 import { conectarDB } from "./DATABASE/conectarDB.js";
 
-// import { loginUsuario} from "./CONTROLLERS/loginusuario.js";
-// import { logoutusuario } from "./CONTROLLERS/logoutusuario.js";
 import { getUsuarios } from "./CONTROLLERS/getusuarios.js";
 import { getProyectos } from "./CONTROLLERS/getproyectos.js";
 import { getProyectobyID, getProyectobytoken } from "./CONTROLLERS/getproyectobyid.js";
@@ -21,7 +19,6 @@ import { getAdmin } from "./CONTROLLERS/getadmin.js";
 import { mostrarDatos } from "./Middlewares/mostrarDatos.js";
 import { manejadorErrores } from "./Middlewares/manejoErrores.js";
 import { controlarSession } from "./Middlewares/controlarsession.js";
-// import { controlarSessionUsuario } from "./Middlewares/controlarsessionUSER.js";
 import { register } from "module";
 
 const app = express();
@@ -37,12 +34,6 @@ const port = process.env.port;
 
 app.get("/", (req, res) => res.send("Hola Mundo"));
 
-// Usuarios ----------
-
-// app.post("/login",loginUsuario);
-// app.use(controlarSessionUsuario)
-// app.post("/logout",logoutusuario);
-
 // PROYECTOS y USUARIOS---
 
 app.post("/registeruser", postUsuario);
@@ -51,14 +42,14 @@ app.get("/proyecto", getProyectos);
 
 app.get("/usuario", getUsuarios);
 app.delete("/usuario/:id", deleteUsuario);
-
+app.get("/proyecto/:token", getProyectobytoken);
 app.get("/proyecto/:id", getProyectobyID);
 // Admin------------
 app.post("/loginadm", loginAdmin);
 
 app.use(controlarSession);
 
-app.get("/proyecto/:token", getProyectobytoken);
+
 
 app.post("/logoutadm", logoutadmin);
 app.post("/registeradm", postAdmin);
