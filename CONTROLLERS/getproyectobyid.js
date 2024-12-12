@@ -1,6 +1,6 @@
 import { ModeloProyecto } from "../DATABASE/models/ModeloProyecto.js";
 
-export const getProyectobyID = (req, res, next) => {
+export const getproyectobyid = (req, res, next) => {
     const idProyecto = req.params.id;
     ModeloProyecto.findOne({ id: idProyecto })
     .then((data) => {
